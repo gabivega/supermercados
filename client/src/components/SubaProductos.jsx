@@ -8,7 +8,7 @@ const SubaProductos = ({ handleModalProducto }) => {
   const [page, setPage] = useState(1);
 
   const getProducts = async () => {
-    const productsRequest = await fetch(`${baseUrl}/products?page=${page}`, {
+    const productsRequest = await fetch(`http://3.134.217.226:4000/products?page=${page}`, {
       method: "GET",
       headers: { "content-type": "application/json" },
     });
