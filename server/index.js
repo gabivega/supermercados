@@ -7,6 +7,7 @@ import estadisticasRouter from "./routes/estadisticas.js"
 import cors from "cors";
 import { updateVariations } from "./functions/updateVariations.js";
 import { calcularEstadisticas } from "./controllers/estadisticas.js";
+import path from 'path';
 import cron from "node-cron";
 
 const app = express();
@@ -31,6 +32,9 @@ mongoose.set("strictQuery", false);
 await mongoose.connect(MONGODB)
     .then(() => { console.log("Connected to DB") })
     .catch((error) => { console.log(error) });
+
+const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, 'build')));
 
 
 cron.schedule("00 22 * * * ", async () => {
