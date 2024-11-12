@@ -42,5 +42,6 @@
   },
   "devDependencies": {
     "ajv": "^8.17.1"
-  }
+  },
+  "proxy": "http://localhost:4000"
 }
