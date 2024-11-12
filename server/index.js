@@ -33,13 +33,8 @@ await mongoose.connect(MONGODB)
     .catch((error) => { console.log(error) });
 
 
-// cron.schedule("00 22 * * * ", async () => {
-//     await scrapping();
-//     await updateVariations();
-//     await calcularEstadisticas()
-// });
-
-await scrapping();
-await updateVariations();
-await calcularEstadisticas();
-//await updateVariations();
+cron.schedule("00 22 * * * ", async () => {
+    await scrapping();
+    await updateVariations();
+    await calcularEstadisticas()
+});

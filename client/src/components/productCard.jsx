@@ -11,11 +11,14 @@ const ProductCard = ({ product, handleModalProducto, setImgUrl }) => {
   const cloudinaryBaseUrl =
     "https://res.cloudinary.com/pinguino/image/upload/autoupload/";
 
-  const productLastPrice = product.precio.length - 1;
+  const productLastPrice = product?.precio.length - 1;
   const currentMonth = new Date().getMonth();
   const primerPrecioMes =
     product.variacionesMensuales[currentMonth][0].primerPrecioMes.toFixed();
-
+  const porcentajeVariacionMensual =
+    product.variacionesMensuales[
+      currentMonth
+    ][0].porcentajeVariacionMensual.toFixed();
   return (
     <div
       class="border-gray-400 flex flex-col border-[1px] rounded h-[280px] w-[220px] flex-shrink-0 p-2 cursor-pointer"
@@ -44,7 +47,7 @@ const ProductCard = ({ product, handleModalProducto, setImgUrl }) => {
         <span class="text-blue-800 font-bold pl-1">${primerPrecioMes}</span>
       </p>
       <p class="font-semibold text-sm">
-        Variacion Mensual:{product.variaciones.porcentajeVariacionMensual}%
+        Variacion Mensual:{porcentajeVariacionMensual}%
       </p>
     </div>
   );

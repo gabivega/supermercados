@@ -38,6 +38,7 @@ const Estadisticas = () => {
     setBajaProductos(bajaProductos);
     setIsLoading(false);
   };
+  const currentMonth = new Date().getMonth();
 
   useEffect(() => {
     obtenerEstadisticas();
@@ -93,7 +94,11 @@ const Estadisticas = () => {
                   <div class="flex border-gray-600 border-[1px] border-b-2 justify-between p-2">
                     <p class="text-l font-semibold">{producto.titulo} </p>
                     <p class="font-bold text-green-700">
-                      {producto.variaciones.porcentajeVariacionMensual}%
+                      {
+                        producto.variacionesMensuales[currentMonth][0]
+                          .porcentajeVariacionMensual
+                      }
+                      %
                     </p>
                   </div>
                 ))}
