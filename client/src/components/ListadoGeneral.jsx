@@ -2,9 +2,9 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Spinner from "./Spinner";
 import ModalCardListado from "./ModalCardListado";
+import { baseUrl } from "../utils/baseUrl";
 
 const ListadoGeneral = () => {
-  const baseUrl = process.env.REACT_APP_BASEURL;
   const [listadoProductos, setListadoProductos] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [search, setSearch] = useState("");

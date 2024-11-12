@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import ProductCard from "./productCard";
 import Spinner from "./Spinner";
+import { baseUrl } from "../utils/baseUrl";
 
 const BajaProductos = ({ handleModalProducto }) => {
-  const baseUrl = process.env.REACT_APP_BASEURL;
   const [bajaProductosLista, setBajaProductosLista] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);

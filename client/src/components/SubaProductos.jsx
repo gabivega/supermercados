@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import ProductCard from "./productCard.jsx";
+import { baseUrl } from "../utils/baseUrl.js";
 
 const SubaProductos = ({ handleModalProducto }) => {
-  const baseUrl = process.env.REACT_APP_BASEURL;
   const [productsList, setProductsList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
 
   const getProducts = async () => {
-    const productsRequest = await fetch(`http://3.134.217.226:4000/products?page=${page}`, {
+    const productsRequest = await fetch(`${baseUrl}/products?page=${page}`, {
       method: "GET",
       headers: { "content-type": "application/json" },
     });

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Spinner from "./Spinner";
+import { baseUrl } from "../utils/baseUrl";
+
 const Estadisticas = () => {
-  const baseUrl = process.env.REACT_APP_BASEURL;
   const [isLoading, setIsLoading] = useState(false);
   const [estadisticas, setEstadisticas] = useState(null);
   const [subaProductos, setSubaProductos] = useState([]);

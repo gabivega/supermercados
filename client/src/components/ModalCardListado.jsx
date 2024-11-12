@@ -1,8 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { baseUrl } from "../utils/baseUrl";
 
 const ModalCardListado = ({ _id, modalProductoToggle }) => {
-  const baseUrl = process.env.REACT_APP_BASEURL;
   const [producto, setProducto] = useState(null);
 
   const getProducto = async (id) => {
