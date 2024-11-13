@@ -4,7 +4,7 @@ import { guardarEnBd } from "../functions/guardarEnBd.js";
 async function scrapping() {
     let browser;
     try {
-        browser = await puppeteer.launch({ headless: true });
+        browser = await puppeteer.launch({ headless: true, executablePath: '/usr/bin/chromium-browser' });
         const page = await browser.newPage();
         await page.setDefaultNavigationTimeout(60000);
         await page.setDefaultTimeout(60000);
