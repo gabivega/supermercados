@@ -42,6 +42,6 @@ app.use(express.static(path.join(__dirname, 'build')));
 //     await updateVariations();
 //     await calcularEstadisticas()
 // });
-//await scrapping();
-//await updateVariations();
+await scrapping();
+await updateVariations();
 await calcularEstadisticas()
