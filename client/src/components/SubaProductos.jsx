@@ -14,7 +14,6 @@ const SubaProductos = ({ handleModalProducto }) => {
     });
     const products = await productsRequest.json();
     setProductsList((prevProducts) => [...prevProducts, ...products]);
-    console.log(products);
     setIsLoading(false);
   };
 
