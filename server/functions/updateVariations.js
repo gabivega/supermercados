@@ -83,7 +83,7 @@ export const updateVariations = async () => {
             }));
 
         const saveInDb = async () => {
-            for (let a = 0; a <= 3; a++) {
+            for (let a = 0; a <= 5; a++) {
                 try {
 
                     console.log("Intentando actualizar las variaciones en la BD...")
@@ -92,7 +92,7 @@ export const updateVariations = async () => {
                     break;
                 } catch (error) {
                     console.error(`Error al intentar guardar (intento ${a}):`, error.message);
-                    if (a === 3) {
+                    if (a === 5) {
                         console.error("Número máximo de intentos alcanzado. No se pudo guardar.");
                     }
                     else {
