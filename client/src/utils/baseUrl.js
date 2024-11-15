@@ -1,1 +1,1 @@
-export const baseUrl = "http://3.134.217.226:4000";
+export const baseUrl = "https://proyectosupermercados.gabivega.tech";
