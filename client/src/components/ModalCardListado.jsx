@@ -50,7 +50,7 @@ const ModalCardListado = ({ _id, modalProductoToggle }) => {
   );
   const currentMonth = new Date().getMonth();
   const porcentajeVariacionMensual =
-    producto.variacionesMensuales[
+    producto?.variacionesMensuales[
       currentMonth
     ][0].porcentajeVariacionMensual.toFixed();
 
