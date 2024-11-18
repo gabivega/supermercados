@@ -5,15 +5,23 @@ export const getProducts = async (req, res) => {
         const page = parseInt(req.query.page)
         const limit = 24;
         const skip = (page - 1) * limit
+        const currentMonth = new Date().getMonth();
         const listadoProductos = await Productos.aggregate([
             {
-                $match: {
-                    "variaciones.variacionMensual": { $gt: 0 }
+                $project: {
+                    titulo: 1,
+                    precio: 1,
+                    codigo: 1,
+                    variaciones: 1,
+                    variacionesMensuales: 1,
+                    "variacionMesActual": { $arrayElemAt: ["$variacionesMensuales", currentMonth] }
                 }
             },
+            { $unwind: "$variacionMesActual" },
+            { $match: { "variacionMesActual.porcentajeVariacionMensual": { $gt: 0 } } },
             {
                 $sort: {
-                    "variaciones.porcentajeVariacionMensual": -1
+                    "variacionMesActual.porcentajeVariacionMensual": -1
                 }
             },
             {
@@ -64,7 +72,7 @@ export const getBajaProductos = async (req, res) => {
                 }
             },
             { $unwind: "$variacionMesActual" },
-            { $match: { "variacionMesActual.variacionMensual": { $lt: 0 } } },
+            { $match: { "variacionMesActual.porcentajeVariacionMensual": { $lt: 0 } } },
             {
                 $sort: {
                     "variacionMesActual.porcentajeVariacionMensual": 1

@@ -49,6 +49,11 @@ const ModalCardListado = ({ _id, modalProductoToggle }) => {
     ).values(),
   );
   const currentMonth = new Date().getMonth();
+  const porcentajeVariacionMensual =
+    producto.variacionesMensuales[
+      currentMonth
+    ][0].porcentajeVariacionMensual.toFixed();
+
   const primerPrecioMes =
     producto?.variacionesMensuales[currentMonth][0].primerPrecioMes.toFixed();
 
@@ -85,7 +90,7 @@ const ModalCardListado = ({ _id, modalProductoToggle }) => {
           </p>
           <p class="font-semibold text-sm">
             Variacion Mensual:
-            {producto?.variaciones.porcentajeVariacionMensual}%
+            {porcentajeVariacionMensual}%
           </p>
         </div>
         <div class="">

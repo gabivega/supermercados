@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ProductCard from "./productCard.jsx";
 import { baseUrl } from "../utils/baseUrl.js";
+import Spinner from "./Spinner.jsx";
 
 const SubaProductos = ({ handleModalProducto }) => {
   const [productsList, setProductsList] = useState([]);
@@ -8,6 +9,7 @@ const SubaProductos = ({ handleModalProducto }) => {
   const [page, setPage] = useState(1);
 
   const getProducts = async () => {
+    setIsLoading(true);
     const productsRequest = await fetch(`${baseUrl}/products?page=${page}`, {
       method: "GET",
       headers: { "content-type": "application/json" },
@@ -66,6 +68,7 @@ const SubaProductos = ({ handleModalProducto }) => {
               ))}
             </div>
           </div>
+          {isLoading && <Spinner class="mb-8" />}
         </>
       )}
     </div>

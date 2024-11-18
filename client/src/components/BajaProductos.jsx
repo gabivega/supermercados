@@ -9,6 +9,7 @@ const BajaProductos = ({ handleModalProducto }) => {
   const [page, setPage] = useState(1);
 
   const getBajaProductos = async () => {
+    setIsLoading(true);
     const request = await fetch(`${baseUrl}/bajaproductos?page=${page}`, {
       method: "GET",
       headers: { "content-type": "application/json" },

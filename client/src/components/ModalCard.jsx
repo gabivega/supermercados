@@ -24,6 +24,10 @@ const ModalCard = ({ productoModal, toggleModalProducto, imgUrl }) => {
     productoModal.variacionesMensuales[
       currentMonth
     ][0].primerPrecioMes.toFixed();
+  const porcentajeVariacionMensual =
+    productoModal.variacionesMensuales[
+      currentMonth
+    ][0].porcentajeVariacionMensual.toFixed();
 
   const preciosUnicosPorDia = Array.from(
     new Map(
@@ -60,7 +64,7 @@ const ModalCard = ({ productoModal, toggleModalProducto, imgUrl }) => {
           </p>
           <p class="font-semibold text-sm">
             Variacion Mensual:
-            {productoModal.variaciones.porcentajeVariacionMensual}%
+            {porcentajeVariacionMensual}%
           </p>
         </div>
         <div class="">
