@@ -75,7 +75,7 @@ export const updateVariations = async () => {
                     update: {
                         $set: {
                             'variacionesMensuales': item.variacionesMensuales,
-                            'variaciones.variacionMensual': item.variaciones.porcentajeVariacionMensual
+                            'variaciones.porcentajeVariacionMensual': item.variaciones.porcentajeVariacionMensual
                         },
                     },
                     upsert: true,

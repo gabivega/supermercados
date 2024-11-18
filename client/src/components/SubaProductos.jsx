@@ -15,6 +15,7 @@ const SubaProductos = ({ handleModalProducto }) => {
       headers: { "content-type": "application/json" },
     });
     const products = await productsRequest.json();
+    console.log(products);
     setProductsList((prevProducts) => [...prevProducts, ...products]);
     setIsLoading(false);
   };
