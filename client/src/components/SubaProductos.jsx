@@ -56,11 +56,11 @@ const SubaProductos = ({ handleModalProducto }) => {
     <div class="py-4">
       {productsList && (
         <>
-          <div>
+          <div class="w-full justify-center">
             <h1 class="text-lg font-semibold text-blue-800 p-2 text-center">
               PRODUCTOS CON AUMENTOS DE PRECIO:
             </h1>
-            <div class="flex flex-wrap gap-4">
+            <div class="flex flex-wrap gap-4 justify-center">
               {productsList.map((product) => (
                 <ProductCard
                   product={product}

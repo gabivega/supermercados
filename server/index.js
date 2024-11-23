@@ -43,5 +43,5 @@ cron.schedule("30 01 * * * ", async () => {
     await calcularEstadisticas()
 });
 // await scrapping();
-//await updateVariations();
-//await calcularEstadisticas()
+// await updateVariations();
+await calcularEstadisticas()

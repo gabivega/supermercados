@@ -50,11 +50,11 @@ const ListadoGeneral = () => {
       {isLoading && <Spinner />}
       {listadoProductos && (
         <>
-          <table>
+          <table classname="table-auto width-[90vw]">
             <thead>
               <td class="border-[1px] border-gray-700 font-bold">Producto</td>
               <td class="border-[1px] border-gray-700 font-bold">Precio</td>
-              <td class="border-[1px] border-gray-700 font-bold">Categoria</td>
+              {/* <td class="border-[1px] border-gray-700 font-bold">Categoria</td> */}
             </thead>
             <tbody>
               {listadoProductos
@@ -66,18 +66,19 @@ const ListadoGeneral = () => {
                 .map((producto) => (
                   <tr
                     key={producto._id}
-                    class="odd:bg-white even:bg-slate-300 cursor-pointer hover:font-semibold hover:bg-blue-700 hover:text-white"
+                    class="odd:bg-white even:bg-slate-300 cursor-pointer 
+                            hover:font-semibold hover:bg-blue-700 hover:text-white "
                     onClick={() => mostrarModal(producto)}
                   >
-                    <td class="border-[1px] border-gray-700">
+                    <td class="border-[1px] text-sm border-gray-700 break-words text-ellipsis overflow-hidden line-clamp-1 py-1">
                       {producto.titulo}
                     </td>
-                    <td class="border-[1px] border-gray-700">
+                    <td class="border-[1px] text-sm border-gray-700 break-words	py-1">
                       ${producto.ultimoPrecio}
                     </td>
-                    <td class="border-[1px] border-gray-700">
+                    {/* <td class="border-[1px] border-gray-700 break-words text-ellipsis overflow-hidden	">
                       {producto.categoria}
-                    </td>
+                    </td> */}
                   </tr>
                 ))}
             </tbody>
