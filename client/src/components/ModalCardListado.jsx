@@ -4,7 +4,7 @@ import { baseUrl } from "../utils/baseUrl";
 
 const ModalCardListado = ({ _id, modalProductoToggle }) => {
   const [producto, setProducto] = useState(null);
-
+  console.log(_id);
   const getProducto = async (id) => {
     const producto = await fetch(`${baseUrl}/productolistado?id=${id}`, {
       method: "GET",
@@ -49,13 +49,24 @@ const ModalCardListado = ({ _id, modalProductoToggle }) => {
     ).values(),
   );
   const currentMonth = new Date().getMonth();
-  const porcentajeVariacionMensual =
-    producto?.variacionesMensuales[
-      currentMonth
-    ][0].porcentajeVariacionMensual.toFixed();
 
-  const primerPrecioMes =
-    producto?.variacionesMensuales[currentMonth][0].primerPrecioMes.toFixed();
+  let porcentajeVariacionMensual = 0;
+  let primerPrecioMes = "No hay Datos del Mes Actual";
+
+  console.log(producto);
+  if (producto && producto.variacionesMensuales[currentMonth].length > 0) {
+    porcentajeVariacionMensual =
+      producto.variacionesMensuales[currentMonth][0].porcentajeVariacionMensual;
+    primerPrecioMes =
+      producto?.variacionesMensuales[currentMonth][0].primerPrecioMes.toFixed();
+  }
+  // const porcentajeVariacionMensual =
+  //   producto?.variacionesMensuales[
+  //     currentMonth
+  //   ][0].porcentajeVariacionMensual.toFixed() || 0;
+
+  // primerPrecioMes =
+  // producto?.variacionesMensuales[currentMonth][0].primerPrecioMes.toFixed();
 
   useEffect(() => {
     getProducto(_id);
@@ -86,7 +97,7 @@ const ModalCardListado = ({ _id, modalProductoToggle }) => {
           </p>
           <p class="font-semibold text-sm">
             Precio al inicio del Mes:
-            <span class="text-blue-800 font-bold pl-1">${primerPrecioMes}</span>
+            <span class="text-blue-800 font-bold pl-1">{primerPrecioMes}</span>
           </p>
           <p class="font-semibold text-sm">
             Variacion Mensual:
