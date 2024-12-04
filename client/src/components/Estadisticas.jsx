@@ -76,7 +76,7 @@ const Estadisticas = () => {
                   <div class="flex border-gray-600 border-[1px] border-b-2 justify-between p-2">
                     <p class="text-l font-semibold">{producto.titulo} </p>
                     <p class="font-bold text-red-700">
-                      {producto.variaciones.variacionMensual}%
+                      {producto.variaciones.porcentajeVariacionMensual}%
                     </p>
                   </div>
                 ))}

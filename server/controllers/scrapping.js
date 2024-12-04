@@ -6,7 +6,7 @@ async function scrapping() {
     try {
         browser = await puppeteer.launch({
             headless: true,
-            executablePath: '/usr/bin/chromium-browser'
+            // executablePath: '/usr/bin/chromium-browser'
         });
         const page = await browser.newPage();
         await page.setDefaultNavigationTimeout(60000);
