@@ -37,7 +37,7 @@ const __dirname = path.resolve();
 app.use(express.static(path.join(__dirname, 'build')));
 
 
-cron.schedule("59 12 * * * ", async () => {
+cron.schedule("20 13 * * * ", async () => {
     await scrapping();
     await updateVariations();
     await calcularEstadisticas()
